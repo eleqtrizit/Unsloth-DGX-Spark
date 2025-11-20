@@ -12,10 +12,10 @@ ENV PATH="/opt/venv/bin:$PATH"
 RUN pip install jupyterlab ipython
 
 # Install required packages with uv pip
-RUN pip install transformers peft "datasets==4.3.0" "trl==0.19.1"
+RUN pip install transformers==4.56.2 peft "datasets==4.3.0" "trl==0.22.2"
 RUN pip install --no-deps unsloth unsloth_zoo
 RUN pip install hf_transfer
-RUN pip install --no-deps bitsandbytes
+RUN pip install --no-deps bitsandbytes==0.48.0
 
 # Copy workspace files from unsloth container
 COPY --from=unsloth-source /workspace /workspace

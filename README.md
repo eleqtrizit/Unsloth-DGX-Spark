@@ -1,6 +1,8 @@
 # Unsloth for DGX Spark
 
-Unsloth Spark is a Docker-based environment for running Unsloth, a library that enables faster LLM fine-tuning with minimal memory usage. This project combines the Unsloth Docker container's library of notebooks with NVIDIA's PyTorch container to provide an optimized environment for LLM fine-tuning with GPU acceleration.
+Unsloth Spark is a Docker-based environment for running Unsloth, a library that enables faster LLM fine-tuning with minimal memory usage. 
+
+This project take's NVIDIA's PyTorch container, upgrades a few libs per Unsloth's Dockerfile, then tries to emulate Unsloth's own unsloth/unsloth container by cloning in their notebooks and installing Jupyter.
 
 I imagine this will not be needed if Unsloth creates their own native image.  As of today, 11/19/2025, that is not the case.
 
@@ -22,10 +24,14 @@ I imagine this will not be needed if Unsloth creates their own native image.  As
    make build
    ```
 
-3. Run the test script:
+3. Login to container bash:
    ```bash
    make run
    ```
+4. Test!
+   ```bash
+   cd work && python test_unsloth.py
+```
 
 ## Makefile Commands
 
@@ -43,23 +49,7 @@ Available targets:
 
 ## Manual Docker Commands
 
-If you prefer to use Docker commands directly without the Makefile:
-
-### Running the Container
-
-This may be the most useful.  Start this from any directory and it mount the local files directory into the container under /workspace/work
-
-```bash
-docker run --gpus all --ulimit memlock=-1 -it --ulimit stack=67108864 -v $(pwd):/workspace/work --rm unsloth_spark
-```
-
-### Running JupyterLab
-
-Also will mount the local directory into the container, before starting Jupyter.
-
-```bash
-docker run --gpus all --ulimit memlock=-1 -it --ulimit stack=67108864 --rm -p 7654:7654 -v $(pwd):/workspace/work unsloth_spark /workspace/start-jupyter.sh
-```
+Read the Makefile for example commands.  Ask an LLM what the params mean if you're unsure.
 
 ## Features
 
