@@ -1,4 +1,4 @@
-# Unsloth Spark
+# Unsloth for DGX Spark
 
 Unsloth Spark is a Docker-based environment for running Unsloth, a library that enables faster LLM fine-tuning with minimal memory usage. This project combines the Unsloth Docker container's library of notebooks with NVIDIA's PyTorch container to provide an optimized environment for LLM fine-tuning with GPU acceleration.
 
@@ -31,13 +31,15 @@ I imagine this will not be needed if Unsloth creates their own native image.  As
 
 The project includes a Makefile with the following commands:
 
-- `make build` - Build the container
-- `make build-no-cache` - Build the container without using cache
-- `make run` - Run the container and go to bash.  See below on how to run the container manually for more options.
-- `make jupyter` - Run the container and start Jupyter
-- `make clean` - Remove the container image
-- `make info` - Show image information
-- `make pull` - Pull the base Unsloth container
+```sh
+> make
+Available targets:
+  build            - Build the container
+  build-no-cache   - Build the container without using cache
+  run              - Run bash from the container
+  clean            - Remove the container image
+  jupyter          - Run JupyterLab from the container
+```
 
 ## Manual Docker Commands
 

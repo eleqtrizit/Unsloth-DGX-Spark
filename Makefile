@@ -10,10 +10,8 @@ help:
 	@echo "Available targets:"
 	@echo "  build            - Build the container"
 	@echo "  build-no-cache   - Build the container without using cache"
-	@echo "  run              - Run the container"
+	@echo "  run              - Run bash from the container"
 	@echo "  clean            - Remove the container image"
-	@echo "  test             - Test the container with the test script"
-	@echo "  shell            - Run bash shell in the container"
 	@echo "  jupyter          - Run JupyterLab from the container"
 
 # Pull Unsloth container
