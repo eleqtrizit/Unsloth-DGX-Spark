@@ -2,7 +2,7 @@
 
 Unsloth Spark is a Docker-based environment for running Unsloth, a library that enables faster LLM fine-tuning with minimal memory usage. 
 
-This project take's NVIDIA's PyTorch container, upgrades a few libs per Unsloth's Dockerfile, then tries to emulate Unsloth's own unsloth/unsloth container by cloning in their notebooks and installing Jupyter.
+This project take's NVIDIA's PyTorch container, upgrades a few libs per Unsloth's Dockerfile, then tries to emulate Unsloth's own `unsloth/unsloth` container by cloning in their notebooks and installing Jupyter.
 
 I imagine this will not be needed if Unsloth creates their own native image.  As of today, 11/19/2025, that is not the case.
 
@@ -20,7 +20,6 @@ I imagine this will not be needed if Unsloth creates their own native image.  As
 
 2. Build the container:
    ```bash
-   make pull # need to fetch Unsloth's container
    make build
    ```
 
@@ -28,7 +27,7 @@ I imagine this will not be needed if Unsloth creates their own native image.  As
    ```bash
    make run
    ```
-4. Test!
+4. Test (after `make run`)!
    ```bash
    cd work && python test_unsloth.py
 ```

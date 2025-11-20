@@ -14,11 +14,6 @@ help:
 	@echo "  clean            - Remove the container image"
 	@echo "  jupyter          - Run JupyterLab from the container"
 
-# Pull Unsloth container
-.PHONY: pull
-pull:
-	docker pull --platform linux/amd64 unsloth/unsloth:latest
-
 # Build the container
 .PHONY: build
 build: 
